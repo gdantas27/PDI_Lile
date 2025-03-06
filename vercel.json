@@ -1,13 +1,14 @@
 {
-    "build": {
-      "env": {
-        "NODE_ENV": "development"
+    "builds": [
+      {
+        "src": "src/index.html", // Caminho para o arquivo HTML principal
+        "use": "@vercel/static" // Serve os arquivos estáticos diretamente
       }
-    },
+    ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/"
+        "dest": "/src/index.html" // Redireciona todas as rotas para o index.html
       }
     ]
   }
