@@ -11,18 +11,20 @@ import { TaskManager } from './components/TaskManager';
 import { SortableSection } from './components/SortableSection';
 import { AddSection } from './components/AddSection';
 import { EditableField } from './components/EditableField';
+import { ActionPlanSummary } from './components/ActionPlanSummary';
 import { supabase } from './lib/supabase';
 
 interface SectionData {
   id: string;
   title: string;
-  type: 'overview' | 'objectives' | 'actionPlan' | 'metrics' | 'monitoring' | 'tasks' | 'custom';
+  type: 'overview' | 'objectives' | 'actionPlan' | 'metrics' | 'monitoring' | 'tasks' | 'custom' | 'actionPlanSummary';
   isRemovable: boolean;
   content?: string;
 }
 
 const defaultSections: SectionData[] = [
   { id: 'overview', title: 'Visão Geral', type: 'overview', isRemovable: false },
+  { id: 'actionPlanSummary', title: 'Plano de Ação - Resumo', type: 'actionPlanSummary', isRemovable: true },
   { id: 'objectives', title: 'Objetivos', type: 'objectives', isRemovable: true },
   { id: 'actionPlan', title: 'Plano de Ação', type: 'actionPlan', isRemovable: true },
   { id: 'metrics', title: 'Metas e Indicadores', type: 'metrics', isRemovable: true },
@@ -207,6 +209,8 @@ function App() {
     switch (section.type) {
       case 'overview':
         return <Overview overview={overview} setOverview={setOverview} />;
+      case 'actionPlanSummary':
+        return <ActionPlanSummary />;
       case 'objectives':
         return <Objectives mainObjective={mainObjective} setMainObjective={setMainObjective} />;
       case 'actionPlan':

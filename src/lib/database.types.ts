@@ -35,6 +35,41 @@ export interface Database {
           updated_at?: string
         }
       }
+      pdi_activities: {
+        Row: {
+          id: string
+          activity: string
+          description: string
+          expected_result: string
+          deadline: string | null
+          observation: string | null
+          created_at: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          activity: string
+          description: string
+          expected_result: string
+          deadline?: string | null
+          observation?: string | null
+          created_at?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          id?: string
+          activity?: string
+          description?: string
+          expected_result?: string
+          deadline?: string | null
+          observation?: string | null
+          created_at?: string
+          updated_at?: string
+          user_id?: string
+        }
+      }
     }
     Views: {
       [_ in never]: never
