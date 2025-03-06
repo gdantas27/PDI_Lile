@@ -242,7 +242,7 @@ export function ActionPlan() {
                   </button>
                 </div>
                 
-                <div className="w-full">
+                <div className="overflow-x-auto">
                   <table className="w-full border-collapse">
                     <thead className="bg-gray-100">
                       <tr>
@@ -258,13 +258,13 @@ export function ActionPlan() {
                       {table.rows.map(row => (
                         <tr key={row.id} className="border-b hover:bg-gray-50">
                           {table.headers.map(header => (
-                            <td key={header} className="px-4 py-2 border relative group">
-                              <div className="truncate max-w-[200px]">
-                                <EditableField
-                                  value={row.cells[header.toLowerCase()]}
-                                  onChange={(value) => updateCell(table.id, row.id, header, value)}
-                                />
-                              </div>
+                            <td key={header} className="px-4 py-2 border">
+                              <EditableField
+                                value={row.cells[header.toLowerCase()]}
+                                onChange={(value) => updateCell(table.id, row.id, header, value)}
+                                multiline={true}
+                                expandedByDefault={true}
+                              />
                             </td>
                           ))}
                           <td className="px-4 py-2 border">

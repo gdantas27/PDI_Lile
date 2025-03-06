@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { EditableField } from './EditableField';
 import { User, Briefcase, StickyNote } from 'lucide-react';
 import { Notes } from './Notes';
 
@@ -38,18 +37,12 @@ export function Header() {
                 Plano de Desenvolvimento Individual
               </h1>
               <div className="border-l-4 border-white pl-4 space-y-2">
-                <div className="flex items-center gap-2 text-xl md:text-2xl">
-                  <EditableField 
-                    value="Elisrayane Barbosa"
-                    onChange={(value) => console.log(value)}
-                  />
+                <div className="text-2xl md:text-3xl font-semibold text-gray-200">
+                  Elisrayane Barbosa
                 </div>
-                <div className="flex items-center gap-2 text-gray-300">
-                  <Briefcase className="w-4 h-4" />
-                  <EditableField 
-                    value="Estagiária Auxiliar de Marketing"
-                    onChange={(value) => console.log(value)}
-                  />
+                <div className="flex items-center gap-2 text-gray-200">
+                  <Briefcase className="w-4 h-4 flex-shrink-0" />
+                  <span className="text-lg">Estagiária Auxiliar de Marketing</span>
                 </div>
               </div>
             </div>

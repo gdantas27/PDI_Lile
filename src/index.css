@@ -16,6 +16,26 @@
     color: #111113;
     font-family: 'Century Gothic', system-ui, -apple-system, sans-serif;
   }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #666;
+  }
 }
 
 .container {
@@ -25,6 +45,30 @@
 @layer utilities {
   .text-shadow {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .scrollbar-slim {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+  }
+
+  .scrollbar-slim::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  .scrollbar-slim::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  .scrollbar-slim::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  .scrollbar-slim::-webkit-scrollbar-thumb:hover {
+    background: #666;
   }
 }
 
@@ -39,23 +83,18 @@
     overflow: hidden;
     table-layout: fixed;
     width: 100%;
-    position: relative;
 
     td,
     th {
       border: 2px solid #ced4da;
       box-sizing: border-box;
       min-width: 1em;
-      padding: 3px 5px;
+      padding: 0.75rem;
       position: relative;
       vertical-align: top;
 
       > * {
         margin-bottom: 0;
-      }
-
-      &.selectedCell {
-        background-color: #e9ecef;
       }
     }
 
@@ -65,40 +104,8 @@
       text-align: left;
     }
 
-    .column-resize-handle {
-      background-color: #303845;
-      bottom: -2px;
-      position: absolute;
-      right: -2px;
-      pointer-events: none;
-      top: 0;
-      width: 4px;
-    }
-
-    .row-resize-handle {
-      background-color: #303845;
-      bottom: -2px;
-      height: 4px;
-      left: 0;
-      position: absolute;
-      right: 0;
-      pointer-events: none;
-    }
-
-    &.resize-cursor {
-      cursor: col-resize;
-    }
-
-    .selectedCell:after {
-      background: rgba(200, 200, 255, 0.4);
-      content: '';
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      pointer-events: none;
-      position: absolute;
-      z-index: 2;
+    .selectedCell {
+      background-color: #e9ecef;
     }
   }
 
